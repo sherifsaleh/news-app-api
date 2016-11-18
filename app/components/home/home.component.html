@@ -1,5 +1,22 @@
-<h2>Page: {{name}}</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10">
+      <div *ngIf="searchRes" id="container">
+        <article *ngFor="let article of searchRes" class="row">
+          <figure class="col-sm-3 article-figure" style="height: 200px;">
+            <img src="{{article.urlToImage}}" alt="{{article.title}}" class="img-responsive">
+            <a href="{{article.url}}"></a>
+          </figure>
+          <div class="col-sm-9">
+            <h3><a href="{{article.url}}">{{article.title}}</a></h3>
+            <time>{{article.publishedAt }} - {{article.publishedAt | date:'shortTime'}}</time>
+            <p><small>{{article.author}}</small></p>
+            <p>{{article.description}}</p>
+            <a href="{{article.url}}" class="btn-link">read more</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
 
-<pre>Response from server: /users</pre>
-<pre>{{ users?.name }}</pre>
-<pre>{{ users?.last }}</pre>

@@ -1,18 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
+import { NewsService } from './services/news.service';
+
 
 @Component({
     selector: 'my-app',
-    styles: [`h1 {
-	color: white;
-	background: darkgray;
-	padding: 20px;
-}
-`],
-    template: `
-<h1>My First {{name}} app</h1>
-<router-outlet></router-outlet>
-
-<a [routerLink]="['/']">Home</a> | <a [routerLink]="['/about/', { id: 2 }]">About</a>`,
+    templateUrl: 'app.component.html',
+    providers: [NewsService]
 })
 export class AppComponent {
     name: string = "Angular 2 on Express";
